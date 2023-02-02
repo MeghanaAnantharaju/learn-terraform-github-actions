@@ -43,6 +43,7 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_security_group" "web-sg" {
+  vpc_id = "vpc-0b370e1ef894e6dd8"
   name = "${random_pet.sg.id}-sg"
   ingress {
     from_port   = 8080

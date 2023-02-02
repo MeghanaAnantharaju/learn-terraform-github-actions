@@ -26,18 +26,9 @@ provider "aws" {
 
 resource "random_pet" "sg" {}
 
-data "aws_ami" "ubuntu" {
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/ubuntu-*-*-amd64-server-*"]
-  }
-
-  owners = ["850484374678"] # Canonical
-}
 
 resource "aws_instance" "web" {
-  ami                    = data.aws_ami.ubuntu.id
+  ami                    = ami-0aa7d40eeae50c9a9
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.web-sg.id]
 

@@ -27,16 +27,10 @@ provider "aws" {
 resource "random_pet" "sg" {}
 
 data "aws_ami" "ubuntu" {
-  most_recent = true
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
+    values = ["ubuntu/images/ubuntu-*-*-amd64-server-*"]
   }
 
   owners = ["850484374678"] # Canonical
